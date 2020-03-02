@@ -1,6 +1,11 @@
+
 <div class="list-group">
-    <div class="list-group-item list-group-item-dark">
+    <div class="list-group-item d-flex justify-content-between list-group-item-dark">
         <span>All Venues</span>
+        <div>
+            <span> Uesr: <?php echo $user_name; ?></span>
+            <a href="../logout">Log Out</a>
+        </div>
     </div>
     <div class="list-group-item px-1 ">
         <?php

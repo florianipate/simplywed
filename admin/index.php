@@ -5,7 +5,8 @@ $user = new User ;
 if(!$user->isLoggedIn()){
     Redirect::to('../login');
 } else{
-
+$user_name = $user->data()->f_name;
+    // $user_name = DB:getInstance()->get('cms_user', array('username', '=', $user->data()->username))
 // EXTENDS TYPE OF USER
     
 $venues = DB::getInstance()->get('cms_venue_details', array('id', '>', 0));
