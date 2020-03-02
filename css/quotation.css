@@ -1,0 +1,98 @@
+.font-14 {
+    font-size: 14px;
+}
+.font-16 {
+    font-size: 16px;
+}
+.font-19 {
+    font-size: 19px;
+}
+.font-20 {
+    font-size: 20px;
+}
+.font-24 {
+    font-size: 27px;
+}
+.font-28 {
+    font-size: 30px;
+}
+.font-38 {
+    font-size: 38px;
+}
+.bold {
+    font-weight: bold;
+}
+.bck-black {
+    background: #000000;
+}
+.bck-white {
+    background: #ffffff;
+}
+.bck-grey {
+    background: #f2f2f2;
+}
+.txt-white {
+    color: #ffffff;
+}
+.txt-orange {
+    color: #e97225;
+}
+.txt-red {
+    color: #ff0000;
+}
+.hidden {
+    display: none;
+}
+
+
+
+#header a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.progress {
+    background: #e8c3f1 !important;
+}
+.progress-bar {
+    background: #5b2c86 !important;
+}
+.btn-pink {
+    background: #bc84ca;
+    font-weight: bold;
+    color: #ffffff;
+}
+.btn-purple {
+    background: #5b2c86;
+    font-weight: bold;
+    color: #ffffff;
+}
+#content h1 {
+    padding-bottom: 30px;
+}
+#content label {
+    font-weight: bold;
+    font-size: 24px;
+}
+#content .card-body {
+    min-height: 420px;
+}
+#content .button button {
+    width: 100%;
+    font-size: 13px;
+}
+#content .checkmark {
+    height: 25px;
+    width: 25px;
+}
+
+
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    width: 30px !important;
+    height: 50px !important;
+    margin: 0px 5px !important;
+    border-radius: 0 !important;
+    background-color: #ba40b9 !important;
+}
+
+

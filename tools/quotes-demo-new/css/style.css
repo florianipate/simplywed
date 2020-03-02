@@ -1,0 +1,89 @@
+.font-30 {
+    font-size: 30px;
+}
+.font-26 {
+    font-size: 26px;
+}
+.font-20 {
+    font-size: 20px;
+}
+.font-18 {
+    font-size: 18px;
+}
+.font-16 {
+    font-size: 16px;
+}
+.txt-red {
+    color: #ff0000;
+}
+.txt-orange {
+    color: #e97225;
+}
+.txt-purple {
+    color: #5b2c86;
+}
+.bck-grey {
+    background: #f2f2f2;
+}
+.bck-orange {
+    background: #e97225;
+}
+
+
+label {
+    font-weight: bold;
+    font-size: 22px;
+}
+.button {
+    width: 100%;
+    padding: 6px 6px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+.button:hover {
+    text-decoration: none;
+    color: #cccccc;
+}
+.button i {
+    font-size: 24px;
+}
+.btn-orange {
+    background: #e97225;
+    font-weight: bold;
+    color: #ffffff;
+}
+.btn-purple {
+    background: #5b2c86;
+    border: 0px;
+    font-weight: bold;
+    color: #ffffff;
+}
+.progress {
+    background: #e8c3f1 !important;
+}
+.progress-bar {
+    background: #5b2c86 !important;
+}
+
+
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    width: 30px !important;
+    height: 50px !important;
+    margin: 0px 5px !important;
+    border-radius: 0 !important;
+    background-color: #ba40b9 !important;
+}
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
