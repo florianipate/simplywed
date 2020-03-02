@@ -30,10 +30,10 @@
         foreach($venue_video->results() as $video){
             echo '
             <div class="col-3 py-3">
-                <video width="400" controls ="controls">
+                <video width="300" controls ="controls">
                     <source src="../videos/video_test/'.$video->video_path.'" type="video/mp4">
                 </video>
-                <div class="text-center"><a href ="delete_image.php?id='.$image->id.'">Delete</a></div>
+                <div class="text-center"><a href ="delete_video.php?id='.$video->id.'">Delete</a></div>
            </div>';
         }
     }
