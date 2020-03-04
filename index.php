@@ -2,11 +2,8 @@
 // SET TIMEZONE
 date_default_timezone_set("Europe/London");
 
-
-
 // CONNECT TO DATABASE
 include "includes/connect.php";
-
 
 
 ?>
