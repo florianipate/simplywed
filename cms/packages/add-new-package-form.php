@@ -3,7 +3,7 @@
         <span>Use the form below to add a new package</span>
     </div>
     <div class="list-group-item p-0">
-        <form action="" method="post">
+        <form action="" method="post"> 
             
             <div class="form-group col-xs-12 col-sm-8 col-md-8 col-lg-6">
             <?php require_once '../cms/inc/add-new-package.inc.php'?>
@@ -22,6 +22,14 @@
                 <input type="text" class="form-control" name="venue_package" id="venue_package" aria-describedBy="venue_packagefHelp" value="<?php echo Input::get('venue_package')?>" />
                 <small id="venue_packageHelp" class="form-text text-muted">eg: 60 Daytime and 60 Evening Guest Packages </small>
             </div>
+            
+<!--            PACKAGE SUBTITLE-->
+            <div class="form-group col-xs-12 col-sm-8 col-md-8 col-lg-6">
+               <label for="venue_package">Package Subtitle:</label><span class="text-muted"> (Optional)</span> 
+                <input type="text" class="form-control" name="venue_package_subtitle" id="venue_package_subtitle" aria-describedBy="venue_package_subtitlefHelp" value="<?php echo Input::get('venue_package_subtitle')?>" />
+                <small id="venue_package_subtitleHelp" class="form-text text-muted">eg: 60 Daytime and 60 Evening Guest Packages </small>
+            </div>
+            
 <!--            PACKAGE PRICE-->
             <div class="form-group col-xs-12 col-sm-8 col-md-8 col-lg-6">
                 <label for="venue_package_price">Package Price</label><span class="required">*</span> 
@@ -186,7 +194,7 @@
                 </div>
             </div>
             
-<!--            EVENING MAX GUESTS-->
+<!--            EVENING MAX GUESTS  -->
             <div class="form-group col-12">
                 <lable class="text-uppercase">Evening Guests</lable>
                 <div class="row">
@@ -201,10 +209,31 @@
                         <small id="venue_max_eveningHelp" class="form-text text-muted">Enter max guests evening </small>
                     </div>
                 </div>
-            </div>      
+            </div>
+            
+<!--            DJ SECTION  -->
+            
+            <div class="form-group col-12">
+            <lable class="text-uppercase">Is DJ included in the package?</lable><span class="required">*</span>
+                <div class="col-6 py-3">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" onchange = "djPrice_included()" id="dj_yes" name="dj_price_inc"  value="yes" class="custom-control-input">
+                        <label class="custom-control-label" for="dj_yes">YES</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" onchange = "djPrice_not_included()" id="dj_no" name="dj_price_inc" value="no" class="custom-control-input">
+                        <label class="custom-control-label" for="dj_no">NO</label>
+                    </div>
+                </div>
+                <div class="form-group col-4" id="dj_price_visible">
+                    <label for="venue_max_evening">DJ additional price</label><span class="required">*</span> 
+                    <input type="text" class="form-control" name="dj_price" id="dj_price" aria-describedBy="dj_priceHelp" value="<?php echo Input::get('dj_price')?>" />
+                </div>
+                
+            </div>
             
             <div class="form-groupcol-xs-8 col-md-12 col-lg-10 pb-3">
-            <button type="submit" class="btn btn-info m-auto text-white">Save Package</button>
+            <button type="submit" name="submit" class="btn btn-info m-auto text-white">Save Package</button>
             </div>
         </form>
     </div>
@@ -218,6 +247,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.getElementById('fr_price').innerHTML= '£' + 0;
     document.getElementById('sa_price').innerHTML= '£' + 0;
     document.getElementById('su_price').innerHTML= '£' + 0;
+    document.getElementById('dj_no').checked  = true;
+    document.getElementById('dj_price_visible').style.display = "block";
 
 });
     
@@ -281,5 +312,19 @@ function PackagePrice(){
     document.getElementById('sa_price').innerHTML= packagePrice;
     document.getElementById('su_price').innerHTML= packagePrice;
 }
-
+//DJ PRICE SECTION
+    
+    function djPrice_included(){
+        var djYes = document.getElementById('dj_yes');
+        if(djYes.checked  = true){
+            document.getElementById('dj_price_visible').style.visibility = "hidden";
+        }
+    }
+    
+    function djPrice_not_included(){
+        var djNo = document.getElementById('dj_no');
+        if(djNo.checked  = true){
+            document.getElementById('dj_price_visible').style.visibility = "visible";
+        }
+    }
 </script>

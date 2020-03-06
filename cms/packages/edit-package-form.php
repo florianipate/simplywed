@@ -15,11 +15,21 @@
                 <small id="venue_refHelp" class="form-text text-muted">Enter the venue referance/ID.</small>
             </div>
             
+<!--            PACKAGE TITLE-->
             <div class="form-group col-xs-12 col-sm-8 col-md-8 col-lg-6">
                <label for="venue_package">Package Title:</label><span class="required">*</span> 
                 <input type="text" class="form-control" name="venue_package" id="venue_package" aria-describedBy="venue_packagefHelp" value="<?php echo $package_title; ?>" />
                 <small id="venue_packageHelp" class="form-text text-muted">eg: 60 Daytime and 60 Evening Guest Packages </small>
             </div>
+            
+<!--            PACKAGE SUBTITLE-->
+            <div class="form-group col-xs-12 col-sm-8 col-md-8 col-lg-6">
+               <label for="venue_package">Package Subtitle:</label><span class="text-muted"> (Optional)</span> 
+                <input type="text" class="form-control" name="venue_package_subtitle" id="venue_package_subtitle" aria-describedBy="venue_package_subtitlefHelp" value="<?php echo $package_subtitle; ?>" />
+                <small id="venue_package_subtitleHelp" class="form-text text-muted">eg: 60 Daytime and 60 Evening Guest Packages </small>
+            </div>
+            
+<!--            PACKAGE PRICE-->
             
             <div class="form-group col-xs-12 col-sm-8 col-md-8 col-lg-6">
                 <label for="venue_package_price">Package Price</label><span class="required">*</span> 
@@ -59,7 +69,6 @@
                 </div>
             </div>
             
-            <!-- DAYS OF THE WEEK SELECTION AND PRICE VARIATION OPTION -->
             <div class="form-group col-12">
                 <label class="text-uppercase py-3">Days of the week and price variation </label><span class="required">*</span>
                 <div class="row">
@@ -75,7 +84,7 @@
                                 <label for="mo"> Monday</label>
                             </div>
                             <div class="col-3 align-self-center">
-                                <input type="text"  maxlength="3" onkeyup="MoPrice()" name="mo_percent" id="mo_percent" size="3" value="<?php echo $mo_percent; ?>">
+                                <input type="text"  maxlength="3" onkeyup="MoPrice()" id="mo_percent" size="3" value="<?php echo $mo_percent; ?>">
                                 <lable>%</lable>
                             </div>
                             <div class="col-4 d-flex">
@@ -89,7 +98,7 @@
                                 <label for="tu"> Tuesday</label>
                             </div>
                             <div class="col-3 align-self-center">
-                                <input type="text"  maxlength="3" onkeyup="TuPrice()" name="tu_percent" id="tu_percent" size="3" value="<?php echo $tu_percent; ?>">
+                                <input type="text"  maxlength="3" onkeyup="TuPrice()" id="tu_percent" size="3" value="<?php echo $tu_percent; ?>">
                                 <lable>%</lable>
                             </div>
                             <div class="col-4">
@@ -102,7 +111,7 @@
                                 <label for="we"> Wednesday</label>
                             </div>
                             <div class="col-3 align-self-center">
-                                <input type="text"  maxlength="3" onkeyup="WePrice()" name="we_percent" id="we_percent" size="3" value="<?php echo $we_percent; ?>">
+                                <input type="text"  maxlength="3" onkeyup="WePrice()" id="we_percent" size="3" value="<?php echo $we_percent; ?>">
                                 <lable>%</lable>
                             </div>
                             <div class="col-4">
@@ -115,7 +124,7 @@
                                 <label for="th"> Thursady</label>
                             </div>
                             <div class="col-3 align-self-center">
-                                <input type="text"  maxlength="3" onkeyup="ThPrice()" name="th_percent" id="th_percent" size="3" value="<?php echo $th_percent; ?>">
+                                <input type="text"  maxlength="3" onkeyup="ThPrice()" id="th_percent" size="3" value="<?php echo $th_percent; ?>">
                                 <lable>%</lable>
                             </div>
                             <div class="col-4">
@@ -128,7 +137,7 @@
                                 <label for="fr"> Friday</label>
                             </div>
                             <div class="col-3 align-self-center">
-                                <input type="text"  maxlength="3" onkeyup="FrPrice()" name="fr_percent" id="fr_percent" size="3" value="<?php echo $fr_percent; ?>">
+                                <input type="text"  maxlength="3" onkeyup="FrPrice()" id="fr_percent" size="3" value="<?php echo $fr_percent; ?>">
                                 <lable>%</lable>
                             </div>
                             <div class="col-4">
@@ -141,7 +150,7 @@
                                 <label for="sa"> Saturday</label>
                             </div>
                             <div class="col-3 align-self-center">
-                                <input type="text"  maxlength="3" onkeyup="SaPrice()" name="sa_percent" id="sa_percent" size="3" value="<?php echo $sa_percent; ?>">
+                                <input type="text"  maxlength="3" onkeyup="SaPrice()" id="sa_percent" size="3" value="<?php echo $sa_percent; ?>">
                                 <lable>%</lable>
                             </div>
                             <div class="col-4">
@@ -154,7 +163,7 @@
                                 <label for="su"> Sunday</label>
                             </div>
                             <div class="col-3 align-self-center">
-                                <input type="text"  maxlength="3" onkeyup="SuPrice()" name="su_percent" id="su_percent" size="3" value="<?php echo $su_percent; ?>">
+                                <input type="text"  maxlength="3" onkeyup="SuPrice()" id="su_percent" size="3" value="<?php echo $su_percent; ?>">
                                 <lable>%</lable>
                             </div>
                             <div class="col-4">
@@ -199,7 +208,28 @@
                         <small id="venue_max_eveningHelp" class="form-text text-muted">Enter max guests evening </small>
                     </div>
                 </div>
-            </div>      
+            </div> 
+            
+<!--            DJ SECTION  -->
+            
+            <div class="form-group col-12">
+            <lable class="text-uppercase">Is DJ included in the package?</lable><span class="required">*</span>
+                <div class="col-6 py-3">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" onchange = "djPrice_included()" id="dj_yes" name="dj_price_inc"  value="yes" class="custom-control-input">
+                        <label class="custom-control-label" for="dj_yes">YES</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" onchange = "djPrice_not_included()" id="dj_no" name="dj_price_inc" value="no" class="custom-control-input">
+                        <label class="custom-control-label" for="dj_no">NO</label>
+                    </div>
+                </div>
+                <div class="form-group col-4" id="dj_price_visible">
+                    <label for="venue_max_evening">DJ additional price</label><span class="required">*</span> 
+                    <input type="text" class="form-control" name="dj_price" id="dj_price" aria-describedBy="dj_priceHelp" value="<?php echo $dj_price; ?>" />
+                </div>
+                
+            </div>
             
             
             <div class="form-groupcol-xs-8 col-md-12 col-lg-10 pb-3">
@@ -208,7 +238,30 @@
         </form>
     </div>
 </div>
-<script type="text/javascript">   
+<script type="text/javascript">
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+     
+        document.getElementById('dj_no').checked  = "<?php echo $checked_no; ?>";
+        document.getElementById('dj_price_visible').style.visibility = "<?php echo $visibility?>";
+    });
+    
+    //DJ PRICE SECTION
+    
+    function djPrice_included(){
+        var djYes = document.getElementById('dj_yes');
+        if(djYes.checked  = true){
+            document.getElementById('dj_price_visible').style.visibility = "hidden";
+        }
+    }
+    
+    function djPrice_not_included(){
+        var djNo = document.getElementById('dj_no');
+        if(djNo.checked  = true){
+            document.getElementById('dj_price_visible').style.visibility = "visible";
+        }
+    }
+    
  function MoPrice()
  {
     var moPercent = document.getElementById('mo_percent').value;
