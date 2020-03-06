@@ -46,6 +46,7 @@
                 )
             ));
             if($validation->passed()){
+                $quote_price_visibility = (!isset($_POST['quote_price_visibility']))? 0 : 1;
                 Session::put('venue_ref', escape($venue_ref));
                 Session::put('venue_name', escape(Input::get('venue_name')));
                 Session::put('address_line_1', escape(Input::get('address_line_1')));
@@ -56,6 +57,7 @@
                 Session::put('postcode', escape(Input::get('postcode')));
                 Session::put('venue_email', escape(Input::get('venue_email')));
                 Session::put('venue_description', escape(Input::get('venue_description')));
+                Session::put('quote_price_visibility', escape($quote_price_visibility));
                 Redirect::to('preview-venue-info.php?id='.$venue_id);
             }
              else {                   

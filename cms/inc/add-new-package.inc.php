@@ -74,8 +74,8 @@
                    ){
             echo '<span style="color:#f00">You must select at least on day of the week!</span><br>';
             } else{
-                
-                
+                $dj_included = ($_POST['dj_price_inc'] == 'yes')? 1 : 0;
+
                 $venue_ref =Input::get('venue_ref');
                 
                 $venue_info = DB::getInstance()->get('cms_venue_details', array('venue_ref', '=',  $venue_ref));
@@ -98,6 +98,7 @@
                         'venue_ref'                 => Input::get('venue_ref'),
                         'venue_package'             => Input::get('venue_package'),
                         'venue_package_price'       => Input::get('venue_package_price'),
+                        'venue_package_subtitle'    => Input::get('venue_package_subtitle'),
                         'daytime_extra_guest_price' => Input::get('daytime_extra_price'),
                         'evening_extra_guest_price' => Input::get('evening_extra_price'),
                         'venue_max_daytime'         => Input::get('venue_max_daytime'),
@@ -119,7 +120,9 @@
                         'th_percent'                => Input::get('th_percent'),
                         'fr_percent'                => Input::get('fr_percent'),
                         'sa_percent'                => Input::get('sa_percent'),
-                        'su_percent'                => Input::get('su_percent')
+                        'su_percent'                => Input::get('su_percent'),
+                        'dj_included'               => $dj_included,
+                        'dj_price'                  => Input::get('dj_price')
                     ));
                     Redirect::to('venue-info-page.php?id='.$venue_id);
                 } catch(Exception $e) {

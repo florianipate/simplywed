@@ -136,6 +136,17 @@
                 <small id="venue_emailHelp" class="form-text text-muted">Enter venue description.</small>
             </div>
             
+<!--            SHOW QOUTE PRICE-->
+           <?php
+            $quote_price_visibility = ($quote_price_visibility == 1)? 'checked' : '';
+            ?>   
+            <div class="form-group col-xs-12 col-sm-8 col-md-8 col-lg-6">
+                
+                <input type="checkbox" name="quote_price_visibility" id="quote_price_visibility" <?php echo $quote_price_visibility; ?>/> 
+                <label for="quote_price_visibility"> Display Qoute price</label>
+                <small id="quote_price_visibility" class="form-text text-muted">Uncheck if you dont want to display the quote price to customers.</small>
+            </div>
+            
             <div class="form-groupcol-xs-8 col-md-12 col-lg-10 pb-3">
             <button type="submit" class="btn btn-info m-auto text-white">Preview</button>
             </div>

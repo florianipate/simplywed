@@ -55,10 +55,11 @@
                     'name' => 'Venue Description',
                     'required' => true,
                     'min' => 2,
-                    'max' =>1000
+                    'max' =>5000
                 )
             ));
             if($validation->passed()){
+                $quote_price_visibility = (!isset($_POST['quote_price_visibility']))? 0 : 1;
                 $venue_ref = 'V'. randomString(rand(5, 5));
                 $venues_info = DB::getInstance()->get('cms_venue_details', array('id', '>', 0));
                 foreach($venues_info->results() as $venue_info){
@@ -77,6 +78,7 @@
                 Session::put('postcode', escape(Input::get('postcode')));
                 Session::put('venue_email', escape(Input::get('venue_email')));
                 Session::put('venue_description', escape(Input::get('venue_description')));
+                Session::put('quote_price_visibility', escape($quote_price_visibility));
                 Redirect::to('preview-venue-info.php');
             }
              else {                   

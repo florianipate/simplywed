@@ -31,7 +31,7 @@
 //    GET IMAGES FROM THE DATABASE
     $venue_images = DB::getInstance()->get('cms_venue_images', array('venue_ref', '=', $venue_ref));
     if(!$venue_images->count()){
-        echo '<div class="col cms-bg-danger p3 mb-4"><h4 class="text-danger"> No imagse has been added for this venue</h4></div>';
+        echo '<div class="col cms-bg-danger p3 mb-4"><h4 class="text-danger"> No image has been added for this venue</h4></div>';
     } else {
         foreach($venue_images->results() as $image){
             echo '<div class="col-3 py-3">
