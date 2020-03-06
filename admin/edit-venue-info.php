@@ -15,6 +15,7 @@ if($venues->count()){
 }
 $venue_info = DB::getInstance()->get('cms_venue_details', array('id', '=', $venue_id ));
 $venue_ref = $venue_info->first()->venue_ref;
+$quote_price_visibility = $venue_info->first()->preview;
 ?>
 
 <div class="container ">

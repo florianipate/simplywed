@@ -13,7 +13,7 @@ if(!isset($_GET['package'])){
     DB::getInstance()->delete('cms_venue_packages', array('id', '=', $package_id));
 }
 
-    $venue_info = DB::getInstance()->get('demo_venue_details', array('venue_ref', '=', $venue_ref));
+    $venue_info = DB::getInstance()->get('cms_venue_details', array('venue_ref', '=', $venue_ref));
     $venue_id = $venue_info->first()->id;
     
     Redirect::to('venue-info-page.php?id='.$venue_id);

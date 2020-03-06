@@ -31,19 +31,21 @@ if( Session::exists('venue_id')&&
     Session::exists('town_city')&&
     Session::exists('county')&&
     Session::exists('postcode')&&
-    Session::exists('venue_description')){
+    Session::exists('venue_description')&&
+    Session::exists('quote_price_visibility')){
      
-        $venue_id       = Session::get('venue_id');
-        $venue_ref      = Session::get('venue_ref');
-        $venue_name     = Session::get('venue_name');
-        $venue_email    = Session::get('venue_email');
-        $address_line_1 = Session::get('address_line_1');
-        $address_line_2 = Session::get('address_line_2');
-        $address_line_3 = Session::get('address_line_3');
-        $town_city      = Session::get('town_city');
-        $county         = Session::get('county');
-        $postcode       = Session::get('postcode');
-        $description    = Session::get('venue_description');
+        $venue_id               = Session::get('venue_id');
+        $venue_ref              = Session::get('venue_ref');
+        $venue_name             = Session::get('venue_name');
+        $venue_email            = Session::get('venue_email');
+        $address_line_1         = Session::get('address_line_1');
+        $address_line_2         = Session::get('address_line_2');
+        $address_line_3         = Session::get('address_line_3');
+        $town_city              = Session::get('town_city');
+        $county                 = Session::get('county');
+        $postcode               = Session::get('postcode');
+        $description            = Session::get('venue_description');
+        $quote_price_visibility = Session::get('quote_price_visibility');
         
         if($venue_id !== ''){
         DB::getInstance()->update('cms_venue_details', $venue_id, array(
@@ -54,24 +56,26 @@ if( Session::exists('venue_id')&&
             'town_city'         => $town_city,
             'county'            => $county,
             'postcode'          => $postcode,
-            'venue_description' => $description
+            'venue_description' => $description,
+            'preview'           =>$quote_price_visibility
         ));
         Session::put('update_venue_info', 'You have succesfully updated the venue details');
         }else{
         DB::getInstance()->insert('cms_venue_details', array(
-            'venue_ref'         => $venue_ref,
-            'venue_name'        => $venue_name,
-            'venue_email'       => $venue_email,
-            'address_line_1'    => $address_line_1,
-            'address_line_2'    => $address_line_2,
-            'address_line_3'    => $address_line_3,
-            'town_city'         => $town_city,
-            'county'            => $county,
-            'postcode'          => $postcode,
-            'venue_description' => $description,
-            'deleted'           => 0,
-            'disabled'          => 1,
-            'date_added'        => date('Y-m-d H:i:s')
+            'venue_ref'                 => $venue_ref,
+            'venue_name'                => $venue_name,
+            'venue_email'               => $venue_email,
+            'address_line_1'            => $address_line_1,
+            'address_line_2'            => $address_line_2,
+            'address_line_3'            => $address_line_3,
+            'town_city'                 => $town_city,
+            'county'                    => $county,
+            'postcode'                  => $postcode,
+            'venue_description'         => $description,
+            'preview'                   => $quote_price_visibility,
+            'deleted'                   => 0,
+            'disabled'                  => 1,
+            'date_added'                => date('Y-m-d H:i:s')
         ));
         Session::put('added_venue', 'You have succesfully added a new venue');
     }
@@ -86,6 +90,7 @@ if( Session::exists('venue_id')&&
     Session::flash('county');
     Session::flash('postcode');
     Session::flash('venue_description');
+    Session::flash('quote_price_visibility');
 }
 
 ?>
@@ -114,7 +119,7 @@ if( Session::exists('venue_id')&&
                             <span class="badge badge-danger badge-pill"><?php echo $y; ?></span>
                         </li>
                         <li class="list-group-item list-group-item-action">
-                            <a href="">Settings</a>
+                            <a href="../login/changepassword.php?id=<?php echo $user->data()->id; ?>">Settings</a>
                         </li>
                     </ul>
                 </div>

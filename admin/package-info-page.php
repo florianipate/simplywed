@@ -9,17 +9,20 @@ if(!isset($_GET['id'])){
 
 //GET THE PACKAGE DETAILS
 $package_info = DB::getInstance()->get('cms_venue_packages', array('id', '=', $package_id ));
-$venue_ref = $package_info->first()->venue_ref;
-$package_title = $package_info->first()->venue_package;
-$package_price = $package_info->first()->venue_package_price;
+$venue_ref          = $package_info->first()->venue_ref;
+$package_title      = $package_info->first()->venue_package;
+$package_subtitle   = $package_info->first()->venue_package_subtitle;
+$package_price      = $package_info->first()->venue_package_price;
 $daytime_min_guests = $package_info->first()->venue_min_daytime;
 $daytime_max_guests = $package_info->first()->venue_max_daytime;
 $evening_min_guests = $package_info->first()->venue_min_evening;
 $evening_max_guests = $package_info->first()->venue_max_evening;
-$available_from = $package_info->first()->available_from;
+$available_from     = $package_info->first()->available_from;
 $available_from_date = date('d-m-Y', strtotime($available_from));
 $available_to = $package_info->first()->available_to;
 $available_to_date = date('d-m-Y', strtotime($available_to));
+$dj_included = $package_info->first()->dj_included;
+$dj_price = $package_info->first()->dj_price;
 
 $mo_percent = $package_info->first()->mo_percent;
 $tu_percent = $package_info->first()->tu_percent;
@@ -73,6 +76,11 @@ $su_br = ($su != 1)? '' : '<br>';
 $venue_info = DB::getInstance()->get('cms_venue_details', array('venue_ref', '=',  $venue_ref));
 $venue_name = $venue_info->first()->venue_name;
 $venue_id = $venue_info->first()->id;
+if($dj_included == 0){
+    $dj_included = 'DJ is included in the packege price';
+} else {
+    $dj_included = '£'.$dj_price; 
+}
 ?>
 <div class="container">
     <div class="row border-bottom">
@@ -84,6 +92,7 @@ $venue_id = $venue_info->first()->id;
     <div class="row justify-content-between border-bottom pt-4 pb-4">
         <div class="col-sm-12 col-md-9 clo-lg-10">
             <h4><?php echo $package_title ?></h4>
+            <h6 class="text-muted"><?php echo $package_subtitle?></h6>
         </div>
         <div class="col-sm-12 col-md-3 col-lg-2 text-danger">
             <h4><?php echo '£'. $package_price ; ?></h4>
@@ -154,17 +163,28 @@ $venue_id = $venue_info->first()->id;
             <span>Max: </span><?php echo $daytime_max_guests; ?>
         </div>
     </div>
+    
     <div class="row justify-content-between border-bottom pt-2 pb-2">
         <div class="col-sm-12 col-md-9 clo-lg-10 font-weight-bold text-capitalize">Evening Max Guests:</div>
         <div class="col-sm-12 col-md-3 col-lg-2 text-secondary">
-           <span>Min: </span><?php echo $evening_min_guests; ?><br>
+            <span>Min: </span><?php echo $evening_min_guests; ?><br>
             <span>Max: </span><?php echo $evening_max_guests; ?>
+
+
+        </div>
+    </div>
+    
+    <div class="row justify-content-between border-bottom pt-2 pb-2">
+        <div class="col-sm-12 col-md-9 clo-lg-10 font-weight-bold text-capitalize">DJ:</div>
+        <div class="col-sm-12 col-md-3 col-lg-2 text-secondary">
+           <span><?php echo $dj_included; ?></span>
         </div>
     </div>
     <div class="row justify-content-between mt-3">
         <a href="venue-info-page.php?id=<?php  echo $venue_id;?>" class="btn btn-info m-auto text-white">Go To Venue Info</a>
         <a href="additional-package-details.php?id=<?php  echo $package_id;?>" class="btn btn-info m-auto text-white">Additional package details</a>
         <a href="edit-package.php?id=<?php echo $package_id; ?>" class="btn btn-info m-auto text-white">Edit Package Details</a>
+        <a href="edit-package.php?id=<?php echo $package_id; ?>" class="btn btn-info m-auto text-white">Duplicate package</a>
     </div>
 </div>
 <?php

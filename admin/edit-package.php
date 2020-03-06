@@ -9,17 +9,20 @@ if(!isset($_GET['id'])){
 
 $package_info = DB::getInstance()->get('cms_venue_packages', array('id', '=', $package_id ));
 
-$venue_ref                  = $package_info->first()->venue_ref;
-$package_title              = $package_info->first()->venue_package;
-$package_price              = $package_info->first()->venue_package_price;
-$daytime_extra_guests_price  = $package_info->first()->daytime_extra_guest_price;
-$evening_extra_guests_price  = $package_info->first()->evening_extra_guest_price;
-$available_from             = $package_info->first()->available_from;
-$available_to               = $package_info->first()->available_to;
-$venue_min_daytime          = $package_info->first()->venue_min_daytime;
-$venue_max_daytime          = $package_info->first()->venue_max_daytime;
-$venue_min_evening          = $package_info->first()->venue_min_evening;
-$venue_max_evening          = $package_info->first()->venue_max_evening;
+$venue_ref                      = $package_info->first()->venue_ref;
+$package_title                  = $package_info->first()->venue_package;
+$package_subtitle               = $package_info->first()->venue_package_subtitle;
+$package_price                  = $package_info->first()->venue_package_price;
+$daytime_extra_guests_price     = $package_info->first()->daytime_extra_guest_price;
+$evening_extra_guests_price     = $package_info->first()->evening_extra_guest_price;
+$available_from                 = $package_info->first()->available_from;
+$available_to                   = $package_info->first()->available_to;
+$venue_min_daytime              = $package_info->first()->venue_min_daytime;
+$venue_max_daytime              = $package_info->first()->venue_max_daytime;
+$venue_min_evening              = $package_info->first()->venue_min_evening;
+$venue_max_evening              = $package_info->first()->venue_max_evening;
+$dj_included                    = $package_info->first()->dj_included;
+$dj_price                       = $package_info->first()->dj_price;
 
 $mo_percent = $package_info->first()->mo_percent;
 $tu_percent = $package_info->first()->tu_percent;
@@ -52,6 +55,20 @@ if($venues->count()){
         $x++;
     }
 }
+
+//if($dj_included === 1){
+//    $checked_no = 'true';
+////    $checked_yes = 'false';
+//} 
+//if($dj_included === 0) {
+////    $checked_no = 'false';
+//    $checked_yes = 'true';
+//}
+
+$checked_no     = ($dj_included === 1)? 'true' : 'false';
+//$checked_yes    = ($dj_included == false)? 'true' : 'false';
+
+$visibility     = ($dj_included == true)? 'visible' : 'hidden';
 ?>
 
 <div class="container ">

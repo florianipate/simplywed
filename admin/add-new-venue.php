@@ -36,7 +36,7 @@ if($venues->count()){
         <div class="col-sm-12 col-xs-12 col-md-8 col-lg-9 p-sm-0">       
             <?php require_once '../cms/venue/add-new-venue-form.php';?>
             <script>
-                $('#venue-description').jqte();
+                $('#venue_description').jqte();
             </script>
         </div>
     </div>
